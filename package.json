@@ -1,0 +1,16 @@
+{
+  "name": "comicslack",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@slack/client": "^3.10.0",
+    "lodash": "^4.17.4",
+    "slackbotapi": "^1.3.9"
+  }
+}
