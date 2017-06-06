@@ -106,11 +106,11 @@ var slack = new slackAPI({
 slack.on('message', function (data) {
     // If no text, return.
     if (typeof data.text === 'undefined') return;
-
-    var guest = slack.getUser(data.user).name
-    var chan = slack.getChannel(data.channel).name
-    send(irc_client, ":" + guest + "!~Anonymous@hostname PRIVMSG #" + chan + " :" + data.text) // irc_client hack is stupid. Should probably solve this a little nicer
-
+    if (slack.getChannel(data.channel) && slack.getUser(data.user)){
+        var guest = slack.getUser(data.user).name
+        var chan = slack.getChannel(data.channel).name
+        send(irc_client, ":" + guest + "!~Anonymous@hostname PRIVMSG #" + chan + " :" + data.text) // irc_client hack is stupid. Should probably solve this a little nicer
+    }
 });
 
 
